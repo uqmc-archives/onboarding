@@ -1,8 +1,8 @@
----
-Title: How To Archive (onboard) Documents for the UQMC
-Author: Nicholas Tierney
-Date: 2016-11-20
----
+# Title: How To Archive (onboard) Documents for the UQMC
+
+# Author: Nicholas Tierney
+
+# Date: 2016-11-20
 
 Ok, so here are some of my guidelines for the process of archiving material from the UQMC, known as "onboarding"
 This document will change over timem and should be regarded as a Work In Progress.
