@@ -2,7 +2,7 @@
 
 # Author: Nicholas Tierney
 
-# Date: 2016-11-20
+# Date last modified: 2018-05-09
 
 Ok, so here are some of my guidelines for the process of archiving material from the UQMC, known as "onboarding".
 
@@ -18,6 +18,8 @@ The overall process should follow these steps:
 6. Validate the OCR process
 
 These are now outlined in more detail
+
+**note**: These steps may seem excessive, but this is how state of the art research is performed, and I think that we have a responsibility to ensure that this is held at a high standard.
 
 # 1. Record documents in the highest possible resoulution
 
@@ -44,22 +46,36 @@ For example I have:
 - one copy on a personal hard disk
 - one copy on google drive
 
-# 5. Produce optical character recognition (OCR) where possible
+# 5. Produce text from image using optical character recognition (OCR) where possible
 
-I use the free open source OCR software "Tesseract" along with a [makefile written by Lincoln Mullen to batch process PDFs](https://github.com/lmullen/ocr-makefile). This takes a PDF and bursts it into high quality PNG images, then performs the character recognition and puts it into a separate .txt file, and even separates this out into separate pages.
+A really good (free!) way to automate this is to use the OCR software [OCRmyPDF](https://ocrmypdf.readthedocs.io/en/latest/cookbook.html), which adds the text into the PDF. 
+It is powered by the software "Tesseract", which is FOSS.
+
+You can create a text file and add the text to the PDF with the command:
+
+```
+ocrmypdf --sidecar output.txt input.pdf output.pdf
+```
+
+This performs the OCR on "input.pdf" and produces a textfile "output.txt" and PDF "output.pdf".
+
+There then needs to be some way to add the text back to the PDF, but in my opinion, that is not as big a priority.
+
+The PDF is then checked in to the online archive.
 
 # 6. Validate the OCR process
 
-Two people are assigned a single document, they each do the following:
+Once the OCR is done, the text should be checked into github, and then a branch made to read over the text.
 
-- Make a copy of the original OCR text file for editing in another folder `validate-editorinitials`. So, something like `validate-njt/text.txt`.
+Ideally, two people make branches and compare then to each other. 
+
+Some notes on doing the comparison
+
 - The text file must be edited in a plain text file editor, such as notepad, notepad++, textwrangler, atom, sublime, etc.
 - Do not use Microsoft Word, OpenOffice, or similar. This is because software like Microsoft word adds extra hidden character information in a page which means that the text may not be able to be searched effectively or correctly. This is very important!
 - Read through the text file and the scanned file, and make corrections in the text file.
 
-Once both editors have made their suggestions and changes, they are to compare text documents for any errors or questions. They can do this with some diffing
-tools.
-- This may seem excessive, but this is how state of the art research is performed, and I think that we have a responsibility to ensure that this is held at a high standard.
+Once both editors have made their suggestions and changes, they are to compare text documents for any errors or questions. 
 
 # 7. Share online
 
